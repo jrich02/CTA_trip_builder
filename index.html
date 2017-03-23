@@ -1,0 +1,77 @@
+<!-- This page contains a list of all of my trips plus the ability to add more trips(button)-->
+<!doctype html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>CTA Route Builder</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- my styles here -->
+		<link rel="stylesheet" href="css/styles.css">
+
+	</head>
+	<body>
+		<div id="appWrapper">
+			<section id="home">
+				<!-- YOUR TRIPS HEADER // ADD NEW TRIP PLUS BUTTON -->
+				<!-- IF NO TRIPS > YOU HAVEN'T BUILT ANY TRIPS YET TEXT -->
+				<!-- IF TRIPS > 1 ROW PER TRIP -->
+				<!-- TRIP NAME // # OF ROUTES // TRASH CAN TO DELETE (SWIPE FOR APP) -->
+			</section>
+
+			<section id="viewTrip">
+				<!-- HEADER WITH NAME OF TRIP -->
+					<!-- BACK BUTTON (goes to home section) -->
+					<!-- NAME OF TRIP BEING VIEWED -->
+					<!-- PLUS BUTTON TO ADD NEW ROUTE TO TRIP (goes to buildRoute section) -->
+				<!-- ONE ROW PER ROUTE CREATED FOR THAT TRIP -->
+					<!-- NOW TIME -->
+					<!-- TIME BETWEEN NOW AND ARRIVAL OF CLOSEST FIRST STOP BUS OR TRAIN -->
+					<!-- NAME OF FIRST STOP BUS/TRAIN AND TIME IT WILL ARRIVE -->
+					<!-- TIME BETWEEN FIRST STOP ARRIVAL AND EXIT -->
+						<!-- IF EXISTS: NAME OF FIRST TRANSFTER AND TIME IT WILL ARRIVE THAT IS AFTER FIRST EXIT TIME -->
+						<!-- TIME BETWEEN TRANSFER ARRIVAL AND EXIT -->
+						<!-- NAME OF TRANSFTER EXIT AND TIME IT WILL ARIVE -->
+					<!-- REPEAT UNTIL NO MORE LEFT -->
+			</section>
+			<section id="addTrip">
+				<!-- NAME YOUR TRIP HEADER -->
+				<!-- TEXT INPUT TO ADD TRIP NAME TO -->
+				<!-- BUTTON TO CANCEL ADDING TRIP AND GO BACK TO INDEX -->
+				<!-- BUTTON TO MOVE TO NEXT STEP OF BUILD ROUTES -->
+			</section>
+			<section id="buildRoute">
+				<!-- HEADER WITH NAME OF CURRENTLY SELECTED TRIP -->
+				<!-- STEP 1 -->
+					<!-- FIRST STEP HEADER "GET ON AT:" -->
+					<!-- SELECT DROPDOWN W PLACEHOLDER "SELECT A BUS OR TRAIN" -->
+						<!-- SELECT OPTIONS OF EVERY BUS TRAIN ROUTE IN CITY (USE SECTIONS FOR ORDERING?) -->
+					<!-- TEXT DIV TO DISPLAY CHOSEN ROUTE SELECTION (optional?) -->
+					<!-- SELECT DROPDOWN W PLACEHOLDER "SELECT DIRECTION" (initially hidden)-->
+						<!-- SELECT OPTIONS OF EACH DIRECTION THE CHOSEN ROUTE TRAVELS -->
+					<!-- TEXT DIV TO DISPLAY CHOSEN DIRECTION SELECTION (optional?) -->
+					<!-- SELECT DROPDOWN W PLACEHOLDER "SELECT STOP"  -->
+						<!-- SELECT OPTIONS OF EACH STOP ON THAT ROUTE GOING IN THAT DIRECTION -->
+				<!-- STEP 2 (initially hidden until step 1 complete) -->
+					<!-- SECOND STEP HEADER "GET OFF AT:" -->
+					<!-- SELECT DROPDOWN W PLACEHOLDER "SELECT STOP" -->
+						<!-- SELECT OPTIONS OF STOPS IN THAT DIRECTION (stretch goal: only show stops after the stop chosen in step1) -->
+				<!-- STEP 3 -->
+					<!-- step 3 is the same as step 1, it needs to repeat 1-2 -->
+					<!-- stretch goal: use google maps to find all stops within .5 mile only display those. -->
+				<!-- BUTTONS -->
+					<!-- CANCEL BUTTON (closes section, goes back to home section) -->
+					<!-- ADD A TRANSFER BUTTON (hidden until step 2 is complete. displays step 3, then hides)-->
+					<!-- FINISH BUTTON (hidden until step 2 is complete. saves progress, closes section, goes back to home section) -->
+			</section>
+
+		</div>
+
+		<!-- libraries in use here -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- my code and styles here -->
+		<script src="js/main.js"></script>
+	</body>
+</html>
