@@ -1,0 +1,68 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.pageTitle {
+	background-color: #ddd;
+	font-size: 1.5em;
+	padding: .5em;
+}
+
+.pageTitle h1 {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+}
+
+.pageTitle i.fa-plus {
+	float: right;
+	margin-top: .1em;
+}
+
+.contentWrapper {
+	margin: .5em;
+}
+
+ul.tripList {
+	list-style: none;
+	padding: 0;
+}
+
+li.trip .tripInfo {
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: middle;
+	width: calc(100% - 40px);
+}
+
+button.removeTrip {
+	box-sizing: border-box;
+	display: inline-block;
+	font-size: 1.5em;
+	background-color: transparent;
+	width: 30px;
+	margin: 0;
+	border: none;
+	vertical-align: middle;
+}
+
+.card {
+	box-sizing: border-box;
+	padding: .5em;
+	margin: .5em 0;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+select {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.hidden {
+	display: none;
+}

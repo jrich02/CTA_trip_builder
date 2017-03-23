@@ -8,17 +8,45 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<!-- FAVICON  <link rel="apple-touch-icon" href="apple-touch-icon.png">   -->
+
 		<!-- my styles here -->
 		<link rel="stylesheet" href="css/styles.css">
+		<!-- fontawesome -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 	</head>
 	<body>
 		<div id="appWrapper">
 			<section id="home">
+
 				<!-- YOUR TRIPS HEADER // ADD NEW TRIP PLUS BUTTON -->
-				<!-- IF NO TRIPS > YOU HAVEN'T BUILT ANY TRIPS YET TEXT -->
+				<header class="pageTitle">
+					<h1>Your Trips</h1>
+					<i class="fa fa-plus" aria-hidden="true"></i>
+				</header>
+
+				<div class="contentWrapper">
+					<!-- IF NO TRIPS > YOU HAVEN'T BUILT ANY TRIPS YET TEXT -->
+					<div class="noTrips">
+						<p>You haven't built any trips yet. Click the plus sign above to build your first trip</p>
+					</div>
+
 				<!-- IF TRIPS > 1 ROW PER TRIP -->
-				<!-- TRIP NAME // # OF ROUTES // TRASH CAN TO DELETE (SWIPE FOR APP) -->
+					<ul class="tripList">
+						<li class="card trip"> <!-- might need programatic class name for functionality -->
+							<div class="tripInfo">
+								<div class="tripName">Going to Work</div>
+								<div class="numberOfRoutes">5 routes</div>
+							</div>
+							<button class="icon-button removeTrip">
+								<i class="fa fa-trash-o" aria-hidden="true"></i>
+							</button>
+						</li>
+					</ul>
+					<!-- TRIP NAME // # OF ROUTES // TRASH CAN TO DELETE (SWIPE FOR APP) -->
+				</div>
+
 			</section>
 
 			<section id="viewTrip">
