@@ -91,6 +91,25 @@ function getBusInfo(type, param1, param2) {
 }
 
 
+function getTrainInfo(type, param1, param2, param3) {
+	var trackerURL = 'http://lapi.transitchicago.com/api/1.0/';
+	var apiKey = '?key=8832a51e6a514642ba4a6e3125ee3c74';
+	var dataFormat = '&outputType=JSON';
+	// var param1;
+	// var param2;
+	// var param3;
+	// arrivals api: http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx
+		// mapid, stpid, max, rt, key
+	// follower api: http://lapi.transitchicago.com/api/1.0/ttfollow.aspx
+		//runnumber, key
+	// locations api: http://lapi.transitchicago.com/api/1.0/ttpositions.aspx
+		//rt, key
+	$.ajax({
+		type: 'GET',
+		url: trackerURL
+	});
+}
+
 // BUILD ROUTE PAGE FUNCTIONALITY
 	// Retreive passed in trip name for header
 	// Reach out to tracker API for list of all bus routes and train routes
