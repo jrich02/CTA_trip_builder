@@ -133,8 +133,47 @@ function getElStops() {
 
 
 // BUILD ROUTE PAGE FUNCTIONALITY
-	// Retreive passed in trip name for header
-	// Reach out to tracker API for list of all bus routes and train routes
+function buildRoutePageCreator(tripKey, newRouteName) {
+	// hide addTrip, show buildRoute.
+	$('#addTrip').addClass('hidden');
+	$('#buildRoute').removeClass('hidden');
+	// put new route name in header for for build route section
+	$('#buildRoute .pageTitle h1').text(newRouteName);
+
+	// list of train routes. train names don't change. need code for api call
+	var trainLines = [
+		{stopCode:'red', stopName: 'Red Line'}, 
+		{stopCode:'blue', stopName:'Blue Line'}, 
+		{stopCode:'brn', stopName:'Brown Line'}, 
+		{stopCode:'g', stopName:'Green Line'}, 
+		{stopCode:'o', stopName:'Orange Line'}, 
+		{stopCode:'p', stopName:'Purple Line'}, 
+		{stopCode:'pnk', stopName:'Pink Line'}, 
+		{stopCode:'y', stopName:'Yellow Line'}
+	];
+
+	var busPromise = getBusInfo('getroutes','',''); //get the list of bus routes. run function passing in right params.
+
+	//gets the route data from the getroutes JSON and writes it to an array as select options.
+	busPromise.done(function (data) {
+		var routeList = []; // array for route select options
+		// push trainlines to routeList
+		for (var i = 0; i < trainLines.length; i++) {
+			routeList.push('<option value=' + '"' + trainLines[i].stopCode + '"' + 'data-route-type="train">' + trainLines[i].stopName + '</option>');
+		}
+
+		var routesArray = data['bustime-response'].routes;
+		for (var j = 0; j < routesArray.length; j++) {
+			var routeName = routesArray[j].rtnm;
+			var routeNumber = routesArray[j].rt;
+			routeList.push('<option value=' + '"' + routeNumber + '"' + 'data-route-type="bus">' + routeNumber + ' ' + routeName + '</option>');
+		}
+
+		createSelect('route', routeList, '#buildRoute'); // create route select in dom
+	});
+
+}
+
 	// Create DOM elements for 4 selects
 		// 1. Select Route, this should be on page immediately
 		// 2. Select Direction
