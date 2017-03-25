@@ -251,6 +251,27 @@ $('#buildRoute').on('change', 'select', function(e) {
 		}
 	}
 
+
+// 		if ( $('.chooseBus select.directions').length === 0 ) {
+// 		var select = document.createElement('select');
+// 		select.setAttribute('class', 'directions');
+// 		$('.chooseBus').append(select);
+// 	}
+// 	$('select.directions').html('<option value="" disabled selected>Select your direction</option>' + directionsList.join(""));
+// }
+ 	// Create DOM elements for 4 selects
+		// 1. Select Route, this should be on page immediately
+ 		// 2. Select Direction
+ 		// 3. Select Stop
+ 		// 4. Select Exit stop
+
+	// Build Select route
+		// Populate with route names returned from API
+		// Draw select route to page.
+	// Store selected route & get data for next selection (directions)
+		// on change, get value of selection
+		// store in variable...or object? to get it ready to send off to firebase
+
 	// Create DOM elements for 4 selects
 		// 1. Select Route, this should be on page immediately
 		// 2. Select Direction
