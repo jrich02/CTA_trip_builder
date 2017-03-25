@@ -46,11 +46,13 @@ getTrips(); // run getTrips function every time page is loaded.
 		// 3. Trashcan icon on UL LI of trips to run function to remove that (run function
 
 
-// ADD TRIP PAGE FUNCTIONALITY
+// ADD TRIP PAGE FUNCTIONALITY (should this be wrapped in an outer function?)
 	// Event handler for Cancel button on click
-		// Clear out any text entered into input
-		// Hide/Remove all content in addTrip
-		// Display/Rerun JS for home section
+	$('.cancelNewTrip').on('click', function() {
+		$('.tripName').val(''); // Clear out any text entered into input
+		$('#addTrip').addClass('hidden'); // Hide/Remove all content in addTrip
+		$('#home').removeClass('hidden'); // Display/Rerun JS? for home section
+	});
 
 	// Event handler for Build Routes button on click
 		// Get the value of the text input
