@@ -14,21 +14,26 @@ database = firebase.database();
 
 // HOME PAGE FUNCTIONALITY
 	// On load, Check the database for any created trips to display
+	function getTrips() {
+		database.ref('trips').on('value', function(results) {
+			var allTrips = results.val();
+			// check that allTrips has any value. if not display "haven't built" message
+			if (!allTrips) {
+				$('.noTrips').removeClass('hidden');
+				$('.tripList').addClass('hidden');
+			} else {
+				$('.tripList').removeClass('hidden');
+				$('.noTrips').addClass('hidden');
+			}
+
 		// if there are trips, display them below in an UL
 			// loop through the trips in the JSON object
 			// create 1 LI per trip item
 			// from JSON, get name of trip, count how many routes are in trip
-			// NOTE: might be able to use handlebar template, by converting this data to new object
-		// else display "You haven't built any trips yet"
 
-	//3 event handlers needed
-		// 1. Plus button to create new trip (on click, run addNewTrip function)
-		// 2. UL LI of trips go to viewTrip view (run viewTrip function)
-		// 3. Trashcan icon on UL LI of trips to run function to remove that (run function
-
-	// addNewTrip function (called from plus button event hanlder)
-		// Open page/dialog addTrip, if page hide everything else
-
+		});
+	}
+getTrips(); // run getTrips function every time page is loaded.
 
 // VIEW TRIP PAGE FUNCTIONALITY
 	// viewTrip function (called from UL LI event handler)
