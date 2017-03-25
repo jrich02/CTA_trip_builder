@@ -227,6 +227,23 @@ $('#buildRoute').on('change', 'select', function(e) {
 				createSelect('direction', directionsList, '#buildRoute');
 			});
 		} else {alert('missing data-route-type!')}
+	// creates the select in the DOM, appends the route list and adds select to the page.
+	function createSelect(name, selectOptions, location) {
+		// create the option list
+		var optionList = '<option value="" disabled selected>Select your ' + name + '</option>' + selectOptions.join("");
+
+		// check if the select already exists on the page, if so append new options to it, if not create it.
+		if ( $(location).find('select').hasClass(name) ) {
+			console.log(location + ' has ' + name)
+			$('select[class=' + name + ']').html(optionList);
+		} else {
+			var select = document.createElement('select');
+			select.setAttribute('class', name);
+			$(select).append(optionList);
+			$(location).append(select);
+		}
+	}
+
 	// Create DOM elements for 4 selects
 		// 1. Select Route, this should be on page immediately
 		// 2. Select Direction
