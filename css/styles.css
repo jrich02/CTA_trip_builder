@@ -4,6 +4,10 @@ html, body {
 	padding: 0;
 }
 
+input {
+	border: 1px solid #ccc;
+}
+
 .pageTitle {
 	background-color: #ddd;
 	font-size: 1.5em;
@@ -17,9 +21,23 @@ html, body {
 	font-size: 1em;
 }
 
-.pageTitle i.fa-plus {
+button.icon-button {
+	box-sizing: border-box;
+	background-color: transparent;
+	width: 30px;
+	margin: 0;
+	border: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+button.addTrip {
 	float: right;
-	margin-top: .1em;
+	font-size: 1em;
+}
+
+button.removeTrip {
+	font-size: 1.5em;
 }
 
 .contentWrapper {
@@ -36,17 +54,6 @@ li.trip .tripInfo {
 	display: inline-block;
 	vertical-align: middle;
 	width: calc(100% - 40px);
-}
-
-button.removeTrip {
-	box-sizing: border-box;
-	display: inline-block;
-	font-size: 1.5em;
-	background-color: transparent;
-	width: 30px;
-	margin: 0;
-	border: none;
-	vertical-align: middle;
 }
 
 .card {
