@@ -110,6 +110,28 @@ function getTrainInfo(type, param1, param2, param3) {
 	});
 }
 
+
+// need to pass in el color, get stops from there.
+function getElStops() {
+	var elStopAjaxCall = $.ajax({
+		type: 'GET',
+		url: 'https://data.cityofchicago.org/resource/8mj8-j3c4.json',
+		// success: function(data) {
+		// 	for (var i = 0; i < data.length; i++) {
+		// 		console.log(data[i].station_name)
+		// 	}
+		// }
+	});
+	return elStopAjaxCall;
+
+	// elStopAjaxCall.done(function(data) {
+	// 		for (var i = 0; i < data.length; i++) {
+	// 			console.log(data[i].station_name)
+	// 		}
+	// 	});
+}
+
+
 // BUILD ROUTE PAGE FUNCTIONALITY
 	// Retreive passed in trip name for header
 	// Reach out to tracker API for list of all bus routes and train routes
