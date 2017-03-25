@@ -55,11 +55,29 @@ getTrips(); // run getTrips function every time page is loaded.
 	});
 
 	// Event handler for Build Routes button on click
-		// Get the value of the text input
-			// if the value is empty. Display message "Please create a name for your new trip"
+	$('.buildRoutes').on('click', function() {
+		var newRouteName = $('.newTripName').val(); // Get the value of the text input
+
+		// if the value is empty. Display message "Please create a name for your new trip"
+		if (!newRouteName) {
+			alert('Please create a name for your new trip');
 			// else get value. 
-				// Use value to create new trip entry in firebase
-				// Move to next page - buildRoute. Pass in name of route for buildRoute header
+		} else {
+			// Use value to create new trip entry in firebase
+			// firebase structure would be to use key to nest underneath each part of structure
+			// trips > routes > stops--list of info about stops
+			var tripsReference = database.ref('trips');
+			var tripKey = tripsReference.push({
+					tripName: newRouteName
+				});
+			var tripKey = tripKey.key;
+			console.log('tripKey= ' + tripKey);
+
+			// Move to next page - buildRoute. Pass in name of route for buildRoute header
+			buildRoutePageCreator(tripKey, newRouteName);
+		}
+	});
+
 
 
 // BUILD ROUTE PAGE FUNCTIONALITY
