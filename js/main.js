@@ -174,6 +174,46 @@ function buildRoutePageCreator(tripKey, newRouteName) {
 
 }
 
+// Event listeners for build route page
+// Need to use event delegation because they get built as selected
+// try if/then statements to check the class name and do something different depending on which select is used
+$('#buildRoute').on('change', 'select', function(e) {
+	// get class name of select
+	var clickedSelect = this.className;
+	// if route is changed, do the route stuff
+	if (clickedSelect === 'route') {
+		// see what type of route it is to call right api
+		var routeType = $(this).find(':selected').attr('data-route-type');
+		// get the value of the selection. store in variable...or object? to get it ready to send off to firebase
+		var selectedRoute = $(this).val();
+		var directionsList = [];
+
+		// use value of selection to send ajax request to API to return possible directions.
+		if (routeType === 'train') {
+			var elStopPromise = getElStops();
+			// I DON'T NEED TO DO ANY OF THIS. I MISSED THAT I CAN ADD A URL PARAMETER
+			// TO THE REQUEST FOR THE ROUTES. IT MIGHT BE A BETTER WAY TO DO IT
+			// THE OTHER POSSIBILITY IS TO GET IT ONCE, BUT NOT RUN IT ON CHANGE.
+			// AND KEEP THE DATA IN A VARIABLE WHILE ON THIS PAGE.
+			elStopPromise.done(function(data) {
+				// selected route = color code = object property
+				trainDirectionsList = [];
+				// loop through response
+				for (var i = 0; i < data.length; i++) {
+					if (data[i][selectedRoute] === true) {
+						var trainStation = data[i].station_descriptive_name;
+						var trainStationId = data[i].map_id;
+						// put stop names in array
+						trainDirectionsList.push('<option value=' + trainStationId + '>' + trainStation + '</option>');
+					}
+				}
+				// stackoverflow copy/paste way to remove duplicates from array with jquery
+				$.each(trainDirectionsList, function(i, el){
+					if($.inArray(el, directionsList) === -1) directionsList.push(el);
+				});
+				// build the station select and place it on the page
+				createSelect('station', directionsList, '#buildRoute');
+			});
 	// Create DOM elements for 4 selects
 		// 1. Select Route, this should be on page immediately
 		// 2. Select Direction
