@@ -85,6 +85,7 @@ function getBusInfo(type, param1, param2) {
 	var dataFormat = '&format=json';
 	var busPromise = $.ajax({
 		type: 'GET',
+		dataType: 'jsonp',
 		url: trackerURL + type + apiKey + param1 + param2 + dataFormat,
 	});
 	return busPromise;
