@@ -214,6 +214,19 @@ $('#buildRoute').on('change', 'select', function(e) {
 				// build the station select and place it on the page
 				createSelect('station', directionsList, '#buildRoute');
 			});
+		} else if (routeType === 'bus') {
+			var busStopPromise = getBusInfo('getdirections','&rt=' + selectedRoute,'');
+			busStopPromise.done(function(data) {
+				var directionsArray = data['bustime-response'].directions;
+
+				for (var i = 0; i < directionsArray.length; i++) {
+					var direction = directionsArray[i].dir;
+					directionsList.push('<option value=' + direction + '>' + direction + ' </option>');
+				}
+
+				createSelect('direction', directionsList, '#buildRoute');
+			});
+		} else {alert('missing data-route-type!')}
 	// Create DOM elements for 4 selects
 		// 1. Select Route, this should be on page immediately
 		// 2. Select Direction
