@@ -80,6 +80,7 @@ getTrips(); // run getTrips function every time page is loaded.
 
 
 function getBusInfo(type, param1, param2) {
+	// http://ctabustracker.com/bustime/api/v2/gettime?key=eJUH5k4Qkb7EapXS4udaPSuGt&format=json
 	var trackerURL = 'http://ctabustracker.com/bustime/api/v2/';
 	var apiKey = '?key=eJUH5k4Qkb7EapXS4udaPSuGt';
 	var dataFormat = '&format=json';
@@ -92,7 +93,7 @@ function getBusInfo(type, param1, param2) {
 
 
 function getTrainInfo(type, param1, param2, param3) {
-	var trackerURL = 'https://lapi.transitchicago.com/api/1.0/';
+	var trackerURL = 'http://lapi.transitchicago.com/api/1.0/';
 	var apiKey = '?key=8832a51e6a514642ba4a6e3125ee3c74';
 	var dataFormat = '&outputType=JSON';
 	// var param1;
