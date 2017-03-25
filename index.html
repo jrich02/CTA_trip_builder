@@ -45,6 +45,19 @@
 								<i class="fa fa-trash-o" aria-hidden="true"></i>
 							</button>
 						</li>
+
+						<script id="tripsList-template" type="text/x-handlebars-template">
+							<li class="card trip"> <!-- might need programatic class name for functionality -->
+								<div class="tripInfo">
+									<div class="tripName">{{tripName}}</div>
+									<div class="numberOfRoutes">{{numberOfRoutes}}</div>
+								</div>
+								<button class="icon-button removeTrip">
+									<i class="fa fa-trash-o" aria-hidden="true"></i>
+								</button>
+							</li>
+						</script>
+
 					</ul>
 					<!-- TRIP NAME // # OF ROUTES // TRASH CAN TO DELETE (SWIPE FOR APP) -->
 				</div>
@@ -112,6 +125,8 @@
 
 		<!-- libraries in use here -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
 		<!-- my code and styles here -->
 		<script src="js/main.js"></script>
 	</body>
