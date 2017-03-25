@@ -80,7 +80,7 @@ getTrips(); // run getTrips function every time page is loaded.
 
 
 function getBusInfo(type, param1, param2) {
-	var trackerURL = 'https://ctabustracker.com/bustime/api/v2/';
+	var trackerURL = 'http://ctabustracker.com/bustime/api/v2/';
 	var apiKey = '?key=eJUH5k4Qkb7EapXS4udaPSuGt';
 	var dataFormat = '&format=json';
 	var busPromise = $.ajax({
