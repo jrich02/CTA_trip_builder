@@ -35,37 +35,7 @@ database = firebase.database();
 	}
 getTrips(); // run getTrips function every time page is loaded.
 
-// VIEW TRIP PAGE FUNCTIONALITY
-	// viewTrip function (called from UL LI event handler)
-		// Get name or ID of clicked LI
-		// getRoutes function - Draw viewTrip page/section to screen
-			// Request data about that trip from firebase
-			// Use JSON data to draw trip outlines to page
-				// put the right number of stops in order, right to left
-				// put the right icon at each stop, bus or train
-				// put the right icon between stops, riding or waiting
-		// getRouteTimes function - Get arrival times for the stops in the routes in JSON object
-			// Send AJAX request to CTA tracker bus API and train API
-				// Include all routes w/ stops & directions from the JSON returned by firebase
-				// Parse the JSON object into a JS object?
-				// Push the returned arrival times AND bus numbers into the newly created JS object?
-				// format inside the stop object:
-					// "arrivalTimes" : [
-					// 	{"routeNumber" : "7263", "arrivalTime" : "11:59"},
-					// 	{"routeNumber" : "8293", "arrivalTime" : "12:15"}, 
-					// 	{etc}
-					// ]
-			// drawRouteTimes function - Go to newly created JS object that has arrival times and put them in template
-				// Go loop through routes looping through stops
-					// In first stop object, get first arrivalTimes object arrivalTime, set it to first stop in visual
-					// Go to second stop object, get matching routeNumber arrivalTime, set it to next stop in visual
-					// Go to third stop, get the first arrival time that is AFTER the second stop arrival time and set to next stop in visual
-					// Go to fourth stop, get matching routeNumber arrivalTime and set it to next stop
-					// Repeat 3-4 until no more stops
-				// repeat loop through routes, until no more routes
 
-		// Back button event handler (on click, go to home, re-run on homepage load function)
-		// Plus button event handler (on click, go to buildRoute page)
 
 
 // ADD TRIP PAGE FUNCTIONALITY
