@@ -1,51 +1,16 @@
 // ON PAGE LOAD
-// Instantiate firebase
-	// firebase structure:
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyAWKNLq7vL3lnWgZueUt18qzlVSaGdDrRk",
+	authDomain: "cta-trip-builder.firebaseapp.com",
+	databaseURL: "https://cta-trip-builder.firebaseio.com",
+	storageBucket: "cta-trip-builder.appspot.com",
+	messagingSenderId: "506852293966"
+};
+firebase.initializeApp(config);
 
-//there can be multiple trips
-//each trip has multiple routes
-//each route has multiple stops
-
-var trips = {
-	"trips": [
-		{
-			"tripName" : "Work to home",
-			"routes" : [{ //is it ok that I'm not defining the nested object as "route" ?
-					"stops" : [{ //is it ok that I'm not definig the nested object as "stop" ?
-							"vehicleType" : "bus OR train",
-							"routeName" : "bus number or train color",
-							"direction" : "n or s or e or w",
-							"stopName" : "name of stop"
-						},
-						{  //is the stop property here necessary or can it be 'anonymous'?
-							"vehicleType" : "Bus",
-							"routeName" : "152 Addison",
-							"direction" : "E",
-							"stopName" : "Addison and Elston"
-						}]
-				},
-
-				{
-					"stops" : [{
-							"stopNumber" : 1, // probably not necessary since i can use stops[i]
-							"vehicleType" : "bus OR train",
-							"routeName" : "bus number or train color",
-							"direction" : "n or s or e or w",
-							"stopName" : "name of stop"
-						},
-						{
-							"stopNumber" : 2,
-							"vehicleType" : "Bus",
-							"routeName" : "152 Addison",
-							"direction" : "E",
-							"stopName" : "Addison and Elston"
-						}]
-				}]
-		} // this is the end of one trip with multiple routes
-
-		// REPEAT HERE AS NECESSARY FOR MULTIPLE TRIPS
-		]
-	}
+// Connect to database
+database = firebase.database();
 
 // HOME PAGE FUNCTIONALITY
 	// On load, Check the database for any created trips to display
