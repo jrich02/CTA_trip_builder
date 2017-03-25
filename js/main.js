@@ -227,6 +227,13 @@ $('#buildRoute').on('change', 'select', function(e) {
 				createSelect('direction', directionsList, '#buildRoute');
 			});
 		} else {alert('missing data-route-type!')}
+
+	// Build Select Direction
+		// Use JSON results to add options to select
+		// add select to page
+	} else if (clickedSelect === 'put a different select option here') {}
+});
+
 	// creates the select in the DOM, appends the route list and adds select to the page.
 	function createSelect(name, selectOptions, location) {
 		// create the option list
