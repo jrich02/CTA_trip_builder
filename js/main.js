@@ -174,96 +174,14 @@ function buildRoutePageCreator(tripKey, newRouteName) {
 
 }
 
-// Event listeners for build route page
-// Need to use event delegation because they get built as selected
-// try if/then statements to check the class name and do something different depending on which select is used
-$('#buildRoute').on('change', 'select', function(e) {
-	// get class name of select
-	var clickedSelect = this.className;
-	// if route is changed, do the route stuff
-	if (clickedSelect === 'route') {
-		// see what type of route it is to call right api
-		var routeType = $(this).find(':selected').attr('data-route-type');
-		// get the value of the selection. store in variable...or object? to get it ready to send off to firebase
-		var selectedRoute = $(this).val();
-		var directionsList = [];
-
-		// use value of selection to send ajax request to API to return possible directions.
-		if (routeType === 'train') {
-			var elStopPromise = getElStops();
-			// I DON'T NEED TO DO ANY OF THIS. I MISSED THAT I CAN ADD A URL PARAMETER
-			// TO THE REQUEST FOR THE ROUTES. IT MIGHT BE A BETTER WAY TO DO IT
-			// THE OTHER POSSIBILITY IS TO GET IT ONCE, BUT NOT RUN IT ON CHANGE.
-			// AND KEEP THE DATA IN A VARIABLE WHILE ON THIS PAGE.
-			elStopPromise.done(function(data) {
-				// selected route = color code = object property
-				trainDirectionsList = [];
-				// loop through response
-				for (var i = 0; i < data.length; i++) {
-					if (data[i][selectedRoute] === true) {
-						var trainStation = data[i].station_descriptive_name;
-						var trainStationId = data[i].map_id;
-						// put stop names in array
-						trainDirectionsList.push('<option value=' + trainStationId + '>' + trainStation + '</option>');
-					}
-				}
-				// stackoverflow copy/paste way to remove duplicates from array with jquery
-				$.each(trainDirectionsList, function(i, el){
-					if($.inArray(el, directionsList) === -1) directionsList.push(el);
-				});
-				// build the station select and place it on the page
-				createSelect('station', directionsList, '#buildRoute');
-			});
-		} else if (routeType === 'bus') {
-			var busStopPromise = getBusInfo('getdirections','&rt=' + selectedRoute,'');
-			busStopPromise.done(function(data) {
-				var directionsArray = data['bustime-response'].directions;
-
-				for (var i = 0; i < directionsArray.length; i++) {
-					var direction = directionsArray[i].dir;
-					directionsList.push('<option value=' + direction + '>' + direction + ' </option>');
-				}
-
-				createSelect('direction', directionsList, '#buildRoute');
-			});
-		} else {alert('missing data-route-type!')}
-
-	// Build Select Direction
-		// Use JSON results to add options to select
-		// add select to page
-	} else if (clickedSelect === 'put a different select option here') {}
-});
-
-	// creates the select in the DOM, appends the route list and adds select to the page.
-	function createSelect(name, selectOptions, location) {
-		// create the option list
-		var optionList = '<option value="" disabled selected>Select your ' + name + '</option>' + selectOptions.join("");
-
-		// check if the select already exists on the page, if so append new options to it, if not create it.
-		if ( $(location).find('select').hasClass(name) ) {
-			console.log(location + ' has ' + name)
-			$('select[class=' + name + ']').html(optionList);
-		} else {
-			var select = document.createElement('select');
-			select.setAttribute('class', name);
-			$(select).append(optionList);
-			$(location).append(select);
-		}
-	}
-
-
-// 		if ( $('.chooseBus select.directions').length === 0 ) {
-// 		var select = document.createElement('select');
-// 		select.setAttribute('class', 'directions');
-// 		$('.chooseBus').append(select);
-// 	}
-// 	$('select.directions').html('<option value="" disabled selected>Select your direction</option>' + directionsList.join(""));
-// }
 	// Create DOM elements for 4 selects
+		// 1. Select Route, this should be on page immediately
 		// 2. Select Direction
 		// 3. Select Stop
 		// 4. Select Exit stop
-
+	// Build Select route
+		// Populate with route names returned from API
+		// Draw select route to page.
 	// Store selected route & get data for next selection (directions)
 		// on change, get value of selection
 		// store in variable...or object? to get it ready to send off to firebase
