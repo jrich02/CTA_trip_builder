@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>CTA Route Builder</title>
+		<title>CTA Trip Builder</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,17 +23,19 @@
 				<!-- YOUR TRIPS HEADER // ADD NEW TRIP PLUS BUTTON -->
 				<header class="pageTitle">
 					<h1>Your Trips</h1>
-					<i class="fa fa-plus" aria-hidden="true"></i>
+					<button class="icon-button addTrip">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+					</button>
 				</header>
 
 				<div class="contentWrapper">
 					<!-- IF NO TRIPS > YOU HAVEN'T BUILT ANY TRIPS YET TEXT -->
-					<div class="noTrips">
+					<div class="noTrips hidden">
 						<p>You haven't built any trips yet. Click the plus sign above to build your first trip</p>
 					</div>
 
 				<!-- IF TRIPS > 1 ROW PER TRIP -->
-					<ul class="tripList">
+					<ul class="tripList hidden">
 						<li class="card trip"> <!-- might need programatic class name for functionality -->
 							<div class="tripInfo">
 								<div class="tripName">Going to Work</div>
@@ -64,14 +66,20 @@
 						<!-- NAME OF TRANSFTER EXIT AND TIME IT WILL ARIVE -->
 					<!-- REPEAT UNTIL NO MORE LEFT -->
 			</section>
-			<section id="addTrip">
+			<section id="addTrip" class="hidden">
 				<!-- NAME YOUR TRIP HEADER -->
+				<header class="pageTitle">
+					<h1>Name Your Trip</h1>
+				</header>
 				<!-- TEXT INPUT TO ADD TRIP NAME TO -->
 				<!-- BUTTON TO CANCEL ADDING TRIP AND GO BACK TO INDEX -->
 				<!-- BUTTON TO MOVE TO NEXT STEP OF BUILD ROUTES -->
 			</section>
-			<section id="buildRoute">
+			<section id="buildRoute" class="hidden">
 				<!-- HEADER WITH NAME OF CURRENTLY SELECTED TRIP -->
+				<header class="pageTitle">
+					<h1></h1>
+				</header>
 				<!-- STEP 1 -->
 					<!-- FIRST STEP HEADER "GET ON AT:" -->
 					<!-- SELECT DROPDOWN W PLACEHOLDER "SELECT A BUS OR TRAIN" -->
