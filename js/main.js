@@ -36,6 +36,14 @@ database = firebase.database();
 getTrips(); // run getTrips function every time page is loaded.
 
 
+	//Three event handlers needed
+		// 1. Plus button to create new trip (on click open addTrip section, close others)
+	$('button.addTrip').on('click', function() {
+		$('#addTrip').removeClass('hidden');
+		$('#home, #viewTrip, #buildRoute').addClass('hidden');
+	});
+		// 2. UL LI of trips go to viewTrip view (run viewTrip function)
+		// 3. Trashcan icon on UL LI of trips to run function to remove that (run function
 
 
 // ADD TRIP PAGE FUNCTIONALITY
