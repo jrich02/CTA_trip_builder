@@ -2,8 +2,8 @@
 $apiKey = "key=8832a51e6a514642ba4a6e3125ee3c74";
 $params = "&outputType=JSON";
 
-$url = "$_REQUEST['url']?$apiKey$params";
-
+$url = "http://lapi.transitchicago.com/api/1.0/?$apiKey$params";
+echo $url;die;
 $ch = curl_init();
 curl_setopt($ch,CURLOPT_URL,$url);
 curl_setopt($ch, CURLOPT_VERBOSE, 1);
