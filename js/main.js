@@ -81,12 +81,12 @@ getTrips(); // run getTrips function every time page is loaded.
 
 function getBusInfo(type, param1, param2) {
 	// http://ctabustracker.com/bustime/api/v2/gettime?key=eJUH5k4Qkb7EapXS4udaPSuGt&format=json
-	var trackerURL = 'http://ctabustracker.com/bustime/api/v2/';
-	var apiKey = '?key=eJUH5k4Qkb7EapXS4udaPSuGt';
-	var dataFormat = '&format=json';
+	//var trackerURL = 'http://ctabustracker.com/bustime/api/v2/';
+	//var apiKey = '?key=eJUH5k4Qkb7EapXS4udaPSuGt';
+	//var dataFormat = '&format=json';
 	var busPromise = $.ajax({
 		type: 'GET',
-		url: trackerURL + type + apiKey + param1 + param2 + dataFormat,
+		url: "/ajax/bus.php",
 	});
 	return busPromise;
 }
